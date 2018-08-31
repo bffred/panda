@@ -1,0 +1,48 @@
+<h3> Suppression d'un Panda : </h3>
+
+
+{% block content %}
+
+   
+   <form method="POST" class="pandaform">{% csrf_token %}
+        {{ form.as_p }} 
+        
+        <div class="row">
+            <div  class="col-lg-3">
+                <label for="gender"> Surnom : {{ Panda.surnom }} </label>        
+            </div>
+        </div>
+        <br> 
+        <div class="row">
+            <div  class="col-lg-3">
+                <label for="gender"> Ordre : {{ Panda.ordre }}    </label>        
+            </div>   
+        </div>
+        <br>
+        <div class="row">
+            <div  class="col-lg-3">
+                <label for="gender"> Famille : {{ Panda.famille }}</label>        
+            </div>  
+        </div>
+        <br>
+        <div class="row">
+            <div  class="col-lg-3">
+                <label for="gender"> Famille : {{ Panda.classe }} </label>        
+            </div>
+        </div>
+
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+       
+        <p>Etes vous sur de vouloir supprimer ce charmant animal ?</p>
+        <input type="submit" value="Confirm">
+        <br>
+    {% comment %} </form> {% endcomment %}
+{% endblock %}
+<br>
+<a href="/wok/">Retour à l'Accueil</a>

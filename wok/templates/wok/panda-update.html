@@ -1,0 +1,13 @@
+<h3> Modification d'un Panda : </h3>
+
+
+{% block content %}
+   
+    <form method="POST" class="pandaform">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    
+    </form>
+{% endblock %}
+<br>
+<a href="/wok/">Retour à l'Accueil</a>
